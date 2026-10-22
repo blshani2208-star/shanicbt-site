@@ -1,0 +1,86 @@
+--- a/index.html
++++ b/index.html
+@@ -957,7 +957,15 @@
+   .bridge-card strong{display:block;font-size:.95rem;color:var(--ink);margin-bottom:7px;font-weight:600}
+   .bridge-card p{font-size:.87rem;color:var(--muted);line-height:1.75}
+   @media(max-width:680px){.bridge-cards{grid-template-columns:1fr;gap:10px}}
+-  </style>
++
++/* Contact handoff: no fields, network submission or delivery claim. */
++#contact .contact-form.rv { opacity:1; transform:none; }
++#cookieBar { z-index:10000; }
++.contact-action { display: flex; width: 100%; justify-content: center; white-space: normal; text-align: center; margin: 1.25rem 0; min-height: 44px; }
++#contact-handoff-note, #contact-privacy-note { font-size: .9rem; margin: 1rem 0; }
++#contact-phone { display: inline-block; padding: .3rem; }
++.contact-action:focus-visible, #contact-phone:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
++</style>
+ </head>
+ 
+ <body>
+@@ -1175,7 +1183,7 @@
+       <p style="max-width:700px;margin:16px auto 0;font-size:clamp(1rem,1.2vw,1.2rem);font-weight:300">הצעד הראשון לא חייב להיות ברור עד הסוף. לפעמים מספיק לדעת שמשהו בפנים מבקש עצירה, הקשבה וכיוון.</p>
+     </div>
+     <div class="step-row rv">
+-      <article class="scrd"><div class="step-num">01</div><h3>פנייה ראשונית</h3><p>את משאירה פרטים או שולחת הודעה קצרה. אין צורך לנסח הכול. אפשר להתחיל מכמה מילים על מה שמעסיק אותך עכשיו.</p></article>
++      <article class="scrd"><div class="step-num">01</div><h3>פנייה ראשונית</h3><p>את שולחת הודעה קצרה לתיאום או מתקשרת. אין צורך לפרט מידע טיפולי בפנייה הראשונית.</p></article>
+       <article class="scrd"><div class="step-num">02</div><h3>שיחת היכרות</h3><p>נשוחח בקצרה כדי להבין מה הביא אותך לפנות, מה את מחפשת בטיפול, ואם יש התאמה. זו הזדמנות לשאול שאלות.</p></article>
+       <article class="scrd"><div class="step-num">03</div><h3>פגישה ראשונה</h3><p>נתחיל להכיר את הסיפור, את הקושי ואת מה שחשוב לך לשנות. לא נמהר להסיק מסקנות — נתחיל לבנות תמונה ראשונית.</p></article>
+       <article class="scrd"><div class="step-num">04</div><h3>בניית כיוון</h3><p>לאחר ההיכרות נבנה כיוון עבודה ברור: מה המוקד, אילו דפוסים חוזרים, ואיך מתקדמות בקצב שנכון לך.</p></article>
+@@ -1382,26 +1390,18 @@
+   <div class="wrap">
+     <div class="rv" style="text-align:center">
+       <h2 style="font-size:clamp(2.2rem,4vw,4rem);font-weight:600;color:#fff">מוכנה לעצור רגע ולבדוק מה קורה?</h2>
+-      <p style="max-width:700px;margin:16px auto 0;font-size:clamp(1rem,1.2vw,1.2rem);font-weight:300;color:rgba(255,255,255,.75)">אפשר להשאיר פרטים ואחזור אלייך לתיאום שיחת היכרות קצרה. אין צורך לדעת בדיוק איך להסביר הכול.</p>
++      <p style="max-width:700px;margin:16px auto 0;font-size:clamp(1rem,1.2vw,1.2rem);font-weight:300;color:rgba(255,255,255,.75)">אפשר לפנות ב־WhatsApp או בטלפון לתיאום שיחת היכרות קצרה. אין צורך לפרט את סיבת הפנייה.</p>
+     </div>
+     <div class="contact-g">
+-      <form class="contact-form rv rv-d1"
+-            action="https://formsubmit.co/blshani2208@gmail.com"
+-            method="POST">
+-
+-        <!-- הגדרות FormSubmit -->
+-        <input type="hidden" name="_subject"      value="📩 פנייה חדשה מהאתר shanicbt.co.il">
+-        <input type="hidden" name="_next"         value="https://shanicbt.co.il/?sent=1">
+-        <input type="hidden" name="_captcha"      value="false">
+-        <input type="hidden" name="_template"     value="table">
+-        <input type="hidden" name="_language"     value="he">
+-
+-        <div class="field"><label for="f-name">שם</label><input id="f-name" name="name" autocomplete="name" required placeholder="השם שלך"></div>
+-        <div class="field"><label for="f-phone">טלפון או מייל</label><input id="f-phone" name="phone" required placeholder="איך לחזור אליך?"></div>
+-        <div class="field"><label for="f-msg">בכמה מילים, מה מביא אותך לפנות?</label><textarea id="f-msg" name="message" placeholder="גם שורה אחת או שתיים מספיק. אין צורך לנסח הכול."></textarea></div>
+-        <button class="btn btn-p" type="submit" style="width:100%">שלחי לי הודעה ←</button>
+-        <p style="color:var(--muted);font-size:.86rem;margin:12px 0 0">הפנייה אינה מחייבת התחלת טיפול. האתר והטופס אינם מיועדים למצבי חירום.</p>
+-      </form>
++      <div class="contact-form rv rv-d1" aria-labelledby="contact-options-title">
++        <h3 id="contact-options-title">לתיאום שיחת היכרות</h3>
++        <p>אפשר להתחיל בהודעה קצרה וכללית, בלי לפרט את סיבת הפנייה.</p>
++        <p id="contact-handoff-note">הקישור פותח את WhatsApp בחלון חדש. ההודעה אינה נשלחת אוטומטית — יש ללחוץ על שליחה ב־WhatsApp.</p>
++        <a id="contact-whatsapp" class="btn btn-p contact-action" href="https://wa.me/972545206037?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A9%D7%A0%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA." target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-describedby="contact-handoff-note contact-privacy-note">פתיחת WhatsApp לתיאום שיחה ↗</a>
++        <p id="contact-privacy-note">הפנייה עוברת דרך WhatsApp, שירות חיצוני הכפוף למדיניות הפרטיות שלו. לתיאום ראשוני אין צורך לשלוח מידע רפואי, תיאור טיפולי או מסמכים.</p>
++        <p>WhatsApp לא נפתח, או שאת מעדיפה דרך אחרת? אפשר להתקשר: <a id="contact-phone" href="tel:+972545206037"><bdi>054-520-6037</bdi></a>.</p>
++        <p>הפנייה אינה מחייבת התחלת טיפול. ערוצי הפנייה אינם מיועדים למצבי חירום.</p>
++      </div>
+       <div class="contact-info rv rv-d2">
+         <h3>יצירת קשר</h3>
+         <p>שיחת ההיכרות מאפשרת להבין יחד מה את מחפשת, האם המסגרת מתאימה, ואיך נכון להתחיל.</p>
+@@ -1565,20 +1565,6 @@
+   }
+ });
+ 
+-/* ---- CONTACT FORM — thank-you banner ---- */
+-(function(){
+-  if(new URLSearchParams(location.search).get('sent')==='1'){
+-    const b = document.createElement('div');
+-    b.style.cssText='position:fixed;bottom:24px;right:24px;z-index:9999;background:#5A8A6A;color:#fff;'+
+-      'padding:16px 24px;border-radius:14px;font-size:1rem;font-weight:600;'+
+-      'box-shadow:0 8px 28px rgba(0,0,0,.18);direction:rtl;max-width:320px;line-height:1.5';
+-    b.textContent='✓  הפנייה נשלחה! אחזור אלייך בהקדם 🙏';
+-    document.body.appendChild(b);
+-    setTimeout(()=>b.remove(),6000);
+-    // נקי את ה-URL
+-    history.replaceState({},'',location.pathname);
+-  }
+-})();
+ 
+ /* ---- HEADER SCROLL ---- */
+ window.addEventListener('scroll', () =>

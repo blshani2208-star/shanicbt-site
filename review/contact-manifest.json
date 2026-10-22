@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-22",
+  "live_url": "https://shanicbt.co.il/",
+  "live_original_sha256": "178239bd076b1b671d7b3c17aba4cbaa4cdb8b4e1572978ddbf1b2f658abed81",
+  "live_candidate_sha256": "d9f0547d0c50dd895dbed4e405dd1d343e2745acd1ccbe9c9697ed147d4e0baf",
+  "repository": "blshani2208-star/shanicbt-site",
+  "base_commit": "097695ee72b082c253eb2f049f63fbdc346ee2ea",
+  "base_blob": "9db1e930ee6d3c36ad3c5680b4be98be8a37a48c",
+  "live_deployment_source": "Not identified; Vercel project metadata access returned 403",
+  "deployed": false,
+  "privacy_original_sha256": "0c38cac1a11d677eef5a2734de4044d5a46351abd3c58828ff3363d5b849b22a",
+  "privacy_candidate_sha256": "78a682ea1dd7d92524a6ff6b5986a39429dd2f110d75716891b40cf60cd765c6"
+}

@@ -1,0 +1,121 @@
+{
+  "browser": "153.0.8010.0",
+  "reproduction": [
+    "Legacy: success displayed and fields cleared without a POST.",
+    "Live snapshot: ?sent=1 displayed success without submission."
+  ],
+  "checks": [
+    {
+      "variant": "legacy",
+      "width": 360,
+      "fields": 0,
+      "posts": 0,
+      "successAfterBlockedLink": false,
+      "overflow": {
+        "card": 0,
+        "page": 0
+      },
+      "keyboard": "passed"
+    },
+    {
+      "variant": "legacy",
+      "width": 390,
+      "fields": 0,
+      "posts": 0,
+      "successAfterBlockedLink": false,
+      "overflow": {
+        "card": 0,
+        "page": 0
+      },
+      "keyboard": "passed"
+    },
+    {
+      "variant": "legacy",
+      "width": 768,
+      "fields": 0,
+      "posts": 0,
+      "successAfterBlockedLink": false,
+      "overflow": {
+        "card": 0,
+        "page": 0
+      },
+      "keyboard": "passed"
+    },
+    {
+      "variant": "legacy",
+      "width": 1440,
+      "fields": 0,
+      "posts": 0,
+      "successAfterBlockedLink": false,
+      "overflow": {
+        "card": 0,
+        "page": 0
+      },
+      "keyboard": "passed"
+    },
+    {
+      "variant": "legacy",
+      "javaScript": false,
+      "linkVisible": true,
+      "falseSuccess": false
+    },
+    {
+      "variant": "live",
+      "width": 360,
+      "fields": 0,
+      "posts": 0,
+      "successAfterBlockedLink": false,
+      "overflow": {
+        "card": 0,
+        "page": 0
+      },
+      "keyboard": "passed"
+    },
+    {
+      "variant": "live",
+      "width": 390,
+      "fields": 0,
+      "posts": 0,
+      "successAfterBlockedLink": false,
+      "overflow": {
+        "card": 0,
+        "page": 0
+      },
+      "keyboard": "passed"
+    },
+    {
+      "variant": "live",
+      "width": 768,
+      "fields": 0,
+      "posts": 0,
+      "successAfterBlockedLink": false,
+      "overflow": {
+        "card": 0,
+        "page": 0
+      },
+      "keyboard": "passed"
+    },
+    {
+      "variant": "live",
+      "width": 1440,
+      "fields": 0,
+      "posts": 0,
+      "successAfterBlockedLink": false,
+      "overflow": {
+        "card": 0,
+        "page": 0
+      },
+      "keyboard": "passed"
+    },
+    {
+      "variant": "live",
+      "javaScript": false,
+      "linkVisible": true,
+      "falseSuccess": false
+    }
+  ],
+  "limitations": [
+    "Viewport emulation, not physical iOS/Android devices.",
+    "No messages sent; no mailbox or WhatsApp delivery receipt verified."
+  ]
+}

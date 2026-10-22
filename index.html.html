@@ -384,9 +384,16 @@ footer { background: var(--burgundy-dark); color: #fff; padding: 2.75rem 0 1.4re
   .hero-ctas,.intro-cta-row{flex-direction:column}
   .hero-ctas .btn,.intro-cta-row .btn{width:100%;justify-content:center}
 }
+
+/* Contact handoff: no fields, network submission or delivery claim. */
+.contact-action { display: flex; width: 100%; justify-content: center; white-space: normal; text-align: center; margin: 1.25rem 0; min-height: 44px; }
+#contact-handoff-note, #contact-privacy-note { font-size: .9rem; margin: 1rem 0; }
+#contact-phone { display: inline-block; padding: .3rem; }
+.contact-action:focus-visible, #contact-phone:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
 </style>
 </head>
 <body>
+<noscript><style>.page { display:none !important; } #page-contact { display:block !important; } #page-contact .fade-in { opacity:1; transform:none; }</style></noscript>
 
 <nav id="mainNav">
   <div class="nav-inner">
@@ -617,7 +624,7 @@ footer { background: var(--burgundy-dark); color: #fff; padding: 2.75rem 0 1.4re
     <div class="container-sm">
       <div class="hero-eyebrow">צרי קשר</div>
       <h1 class="fade-in">יצירת קשר</h1>
-      <p class="lead fade-in stagger-1">אפשר לפנות אליי בווטסאפ או להשאיר פרטים, ואחזור אלייך לתיאום שיחת היכרות.</p>
+      <p class="lead fade-in stagger-1">אפשר לפנות אליי ב־WhatsApp או בטלפון לתיאום שיחת היכרות.</p>
     </div>
   </section>
   <div class="container">
@@ -635,14 +642,14 @@ footer { background: var(--burgundy-dark); color: #fff; padding: 2.75rem 0 1.4re
           <li><span>💻</span>טיפול אונליין מכל מקום בארץ</li>
         </ul>
       </div>
-      <div class="contact-form-wrap fade-in stagger-1">
-        <h3>השארת פרטים</h3>
-        <div class="form-group"><label>שם מלא</label><input type="text" placeholder="השם שלך" id="f-name"></div>
-        <div class="form-group"><label>טלפון</label><input type="tel" placeholder="050-0000000" id="f-phone"></div>
-        <div class="form-group"><label>אימייל (לא חובה)</label><input type="email" placeholder="your@email.com" id="f-email"></div>
-        <div class="form-group"><label>הודעה</label><textarea placeholder="ספרי לי במה אני יכולה לעזור..." id="f-message"></textarea></div>
-        <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="submitForm()">שליחה</button>
-        <div class="form-success" id="formSuccess">הפרטים התקבלו בהצלחה. אחזור אלייך בהקדם.</div>
+      <div class="contact-form-wrap fade-in stagger-1" aria-labelledby="contact-options-title">
+        <h3 id="contact-options-title">לתיאום שיחת היכרות</h3>
+        <p>אפשר להתחיל בהודעה קצרה וכללית, בלי לפרט את סיבת הפנייה.</p>
+        <p id="contact-handoff-note">הקישור פותח את WhatsApp בחלון חדש. ההודעה אינה נשלחת אוטומטית — יש ללחוץ על שליחה ב־WhatsApp.</p>
+        <a id="contact-whatsapp" class="btn btn-primary contact-action" href="https://wa.me/972545206037?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A9%D7%A0%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA." target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-describedby="contact-handoff-note contact-privacy-note">פתיחת WhatsApp לתיאום שיחה ↗</a>
+        <p id="contact-privacy-note">הפנייה עוברת דרך WhatsApp, שירות חיצוני הכפוף למדיניות הפרטיות שלו. לתיאום ראשוני אין צורך לשלוח מידע רפואי, תיאור טיפולי או מסמכים.</p>
+        <p>WhatsApp לא נפתח, או שאת מעדיפה דרך אחרת? אפשר להתקשר: <a id="contact-phone" href="tel:+972545206037"><bdi>054-520-6037</bdi></a>.</p>
+        <p>הפנייה אינה מחייבת התחלת טיפול. ערוצי הפנייה אינם מיועדים למצבי חירום.</p>
       </div>
     </div>
   </div>
@@ -771,7 +778,6 @@ window.addEventListener('scroll',()=>{document.getElementById('mainNav').classLi
 function toggleFaq(el){var i=el.closest('.faq-item'),w=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!w)i.classList.add('open');}
 function initFadeIn(){var obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});document.querySelectorAll('.page.active .fade-in').forEach(el=>obs.observe(el));}
 initFadeIn();
-function submitForm(){var n=document.getElementById('f-name').value,p=document.getElementById('f-phone').value;if(!n||!p){alert('נא למלא שם וטלפון');return;}document.getElementById('formSuccess').style.display='block';['f-name','f-phone','f-email','f-message'].forEach(id=>{document.getElementById(id).value='';});}
 var A={},CS=0,R={emotional:{title:'עומס רגשי',text:'נראה שאת מחזיקה כרגע הרבה, ואולי כבר נהיה קשה לשאת את זה לבד. לפעמים עצם העצירה, ההבנה של מה מכביד, ומתן מקום למה שקורה בפנים — יכולים להיות התחלה חשובה.'},work:{title:'עומס סביב תפקוד ועבודה',text:'נראה שיש כרגע עומס משמעותי סביב אחריות, תפקוד או עבודה. יכול לעזור גם לעשות קצת סדר וגם לבדוק איך להתמודד עם זה בצורה יותר מותאמת ופחות שוחקת.'},clarity:{title:'צורך בבהירות',text:'נראה שמה שאת צריכה עכשיו הוא רגע לעצור, לדייק מה קורה, ולתת לעצמך יותר בהירות לגבי מה עובר עלייך ומה נכון לך כרגע.'},mixed:{title:'התחלה עדינה',text:'גם אם עדיין לא ברור לגמרי מה קשה עכשיו, עצם זה שעצרת רגע לבדוק הוא כבר צעד חשוב. אפשר להתחיל קטן — דרך תרגול קצר או שיחת היכרות.'}};
 function selectOpt(b){var s=b.closest('.tool-screen');s.querySelectorAll('.tool-opt-btn').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');A['q'+s.dataset.q]=b.dataset.val;document.getElementById('btn-'+s.dataset.q).disabled=false;}
 function nextScreen(){CS++;showScreen(CS);}
